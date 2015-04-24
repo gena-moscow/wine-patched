@@ -41,6 +41,10 @@
 
 #if defined(__linux__) && defined(HAVE_SYS_RESOURCE_H) && defined(HAVE_SCHED_H)
 
+#ifndef SCHED_IDLE
+#define SCHED_IDLE 5
+#endif
+
 static int thread_base_priority = -1;
 
 /* gets the priority value from an environment variable */
