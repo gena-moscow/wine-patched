@@ -459,6 +459,9 @@ static DWORD WINAPI proc_PlaySound(LPVOID arg)
     } while (wps->bLoop);
 
     PlaySound_WaitDone(&s); /* to balance first buffer */
+
+    usleep(500 * 1000); // Don't understand why, but short sound does not play
+
     waveOutReset(hWave);
 
     waveOutUnprepareHeader(hWave, &waveHdr[0], sizeof(WAVEHDR));
